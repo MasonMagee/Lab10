@@ -80,20 +80,28 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
    DoubleNode<T>* prev;
    DoubleNode<T>* after;
 
+   prev = prev->getPrev(curr);
+   after = after->getNext(curr);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	if(prev == NULL)
+	{
+		after = after->setPrev(prev);
+		prev = prev->setNext(after);
+		item = curr->getItem();
+	}
+	else if(after == NULL)
+	{
+		prev = prev->setNext(after);
+		after = after->setPrev(prev);
+		item = curr->getItem();
+	}
+	else
+	{
+		prev = prev->setNext(after);
+		after = after->setPrev(prev);
+		item = curr->getItem();
+	}
+   
    sze--;
    delete curr;
    return item;
