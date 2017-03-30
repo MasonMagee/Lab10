@@ -72,6 +72,8 @@ T* Hybrid<T>::dequeue()
 ListDoublyLinkedIterator* Hybrid<T>::iterator()
 {
 	//iterates through SortedListDoublyLinked
+	ListDoublyLinkedIterator<T>*iter = sldl->iterator();
+	return iter;
 }
 
 
